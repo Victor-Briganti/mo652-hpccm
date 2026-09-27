@@ -1,0 +1,35 @@
+#!/bin/bash
+#PBS -N osu
+#PBS -q testes
+#PBS -l nodes=1:ppn=2
+#PBS -l walltime=00:30:00
+#PBS -o osu.out
+#PBS -e osu.err
+
+module purge
+module load apptainer/1.5.0
+
+cd $PBS_O_WORKDIR
+
+source $WORKDIR/spack/share/spack/setup-env.sh
+spack env activate trab01
+
+SIF=$WORKDIR/osu_mpich.sif
+
+for mode in native container; do
+  mkdir -p $RESULTS/$mode
+  for bench in osu_bw osu_latency; do
+    for r in 1 2 3; do
+      log=$RESULTS/$mode/${bench}_run${r}.log
+      if [ "$mode" = "native" ]; then
+        cmd="mpirun -np 2 $bench"
+      else
+        cmd="mpirun -np 2 apptainer exec --bind $WORKDIR $SIF $bench"
+      fi
+      echo "[$(date +%T)] $mode $bench run $r: $cmd"
+      echo "# $cmd" > $log
+      $cmd >> $log 2>&1
+      echo "# exit_code=$?" >> $log
+    done
+  done
+done
