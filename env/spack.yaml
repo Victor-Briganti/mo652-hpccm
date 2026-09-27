@@ -1,0 +1,12 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  # add package specs to the `specs` list
+  specs:
+  - mpich device=ch4 netmod=ucx %gcc
+  - osu-micro-benchmarks ^mpich@5.0.1
+  view: true
+  concretizer:
+    unify: true
