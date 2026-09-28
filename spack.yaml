@@ -5,15 +5,8 @@
 spack:
   # add package specs to the `specs` list
   specs:
-  - mpich device=ch4 netmod=ucx %gcc@12.4
+  - mpich device=ch4 netmod=ucx %gcc
   - osu-micro-benchmarks@7.5.2 ^mpich@5.0.1
   view: true
   concretizer:
     unify: true
-  packages:
-    c:
-      require: [gcc@12]
-    cxx:
-      require: [gcc@12]
-    fortran:
-      require: [gcc@12]

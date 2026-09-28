@@ -1,0 +1,3 @@
+# UCX_TLS=rc,sm,self mpirun -np 2 -ppn 1 apptainer exec --bind /home/lovelace/proj/proj1163/j215217/trab01 /home/lovelace/proj/proj1163/j215217/trab01/osu_mpich.sif osu_latency
+/var/spool/pbs/mom_priv/jobs/1024048.ada.SC: line 31: UCX_TLS=rc,sm,self: command not found
+# exit_code=127

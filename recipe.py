@@ -3,7 +3,7 @@ Stage0 += baseimage(image="ubuntu:24.04")
 Stage0 += packages(ospackages=["build-essential", "python3"])
 
 # GCC
-compiler = gnu(version="12")
+compiler = gnu(version="12.2")
 Stage0 += compiler
 
 # MLNX OFED
