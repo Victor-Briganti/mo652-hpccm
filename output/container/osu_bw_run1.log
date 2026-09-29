@@ -1,0 +1,32 @@
+# mpirun -np 2 -ppn 1 apptainer exec --bind /home/lovelace/proj/proj1163/j215217/trab01 /home/lovelace/proj/proj1163/j215217/trab01/osu_mpich.sif osu_bw
+Attaching 3129915 to 1024374.ada
+INFO:    gocryptfs not found, will not be able to use gocryptfs
+INFO:    gocryptfs not found, will not be able to use gocryptfs
+
+# OSU MPI Bandwidth Test v7.5.2
+# Datatype: MPI_CHAR.
+# Size      Bandwidth (MB/s)
+1                       1.88
+2                       3.78
+4                       7.47
+8                      14.99
+16                     29.98
+32                     59.60
+64                    112.77
+128                   224.74
+256                   262.92
+512                   539.05
+1024                 1068.44
+2048                 2422.58
+4096                 4588.95
+8192                 6834.54
+16384                7276.95
+32768                7600.26
+65536               11995.30
+131072              12163.46
+262144              12181.72
+524288              12219.38
+1048576             12286.34
+2097152             12295.96
+4194304             12301.55
+# exit_code=0

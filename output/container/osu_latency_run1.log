@@ -1,0 +1,32 @@
+# mpirun -np 2 -ppn 1 apptainer exec --bind /home/lovelace/proj/proj1163/j215217/trab01 /home/lovelace/proj/proj1163/j215217/trab01/osu_mpich.sif osu_latency
+INFO:    gocryptfs not found, will not be able to use gocryptfs
+Attaching 3130661 to 1024374.ada
+INFO:    gocryptfs not found, will not be able to use gocryptfs
+
+# OSU MPI Latency Test v7.5.2
+# Datatype: MPI_CHAR.
+# Size       Avg Latency(us)
+1                       2.02
+2                       2.03
+4                       2.02
+8                       2.03
+16                      2.02
+32                      2.07
+64                      2.21
+128                     2.27
+256                     2.88
+512                     2.99
+1024                    3.53
+2048                    3.74
+4096                    4.52
+8192                    5.15
+16384                   6.58
+32768                   8.52
+65536                  11.93
+131072                 17.98
+262144                 27.67
+524288                 49.31
+1048576                92.01
+2097152               177.65
+4194304               347.09
+# exit_code=0

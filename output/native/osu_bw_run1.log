@@ -1,0 +1,31 @@
+# mpirun -np 2 -ppn 1 osu_bw
+Warning: Permanently added the ED25519 host key for IP address '172.26.0.13' to the list of known hosts.
+Attaching 3128833 to 1024374.ada
+
+# OSU MPI Bandwidth Test v7.5.2
+# Datatype: MPI_CHAR.
+# Size      Bandwidth (MB/s)
+1                       2.28
+2                       4.57
+4                       9.13
+8                      18.24
+16                     36.04
+32                     70.25
+64                    122.41
+128                   244.25
+256                   470.86
+512                   625.76
+1024                 1255.45
+2048                 2701.24
+4096                 4777.28
+8192                 7380.14
+16384                7458.90
+32768                7731.81
+65536               12013.91
+131072              12178.49
+262144              12253.15
+524288              12302.92
+1048576             12323.63
+2097152             12334.20
+4194304             12338.48
+# exit_code=0
