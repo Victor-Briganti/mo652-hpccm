@@ -1,3 +1,0 @@
-# UCX_TLS=rc,sm,self mpirun -np 2 -ppn 1 osu_latency
-/var/spool/pbs/mom_priv/jobs/1024048.ada.SC: line 31: UCX_TLS=rc,sm,self: command not found
-# exit_code=127
