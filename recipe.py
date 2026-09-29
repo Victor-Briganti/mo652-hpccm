@@ -3,7 +3,7 @@ Stage0 += baseimage(image="ubuntu:24.04")
 Stage0 += packages(ospackages=["build-essential", "python3"])
 
 # GCC
-compiler = gnu(version="12.2")
+compiler = gnu(version="12")
 Stage0 += compiler
 
 # MLNX OFED
@@ -29,7 +29,7 @@ Stage0 += mlnx_ofed(
 Stage0 += knem(ldconfig=True)
 Stage0 += xpmem(ldconfig=True, toolchain=compiler.toolchain)
 Stage0 += ucx(
-    version="1.14.0",
+    version="1.20.1",
     toolchain=compiler.toolchain,
     prefix="/usr/local/ucx",
     knem="/usr/local/knem",
@@ -65,7 +65,9 @@ Stage0 += generic_autotools(
 )
 Stage0 += shell(
     commands=[
-        "find /usr/local/osu/libexec -type f -executable -name 'osu_*' "
-        "-exec ln -sf {} /usr/local/bin/ \\;",
+        (
+            "find /usr/local/osu/libexec -type f -executable -name 'osu_*' "
+            "-exec ln -sf {} /usr/local/bin/ \\;"
+        ),
     ]
 )
