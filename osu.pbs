@@ -22,9 +22,9 @@ for mode in native container; do
     for r in 1 2 3; do
       log=$RESULTS/$mode/${bench}_run${r}.log
       if [ "$mode" = "native" ]; then
-        cmd="UCX_TLS=rc,sm,self mpirun -np 2 -ppn 1 $bench"
+        cmd="mpirun -np 2 -ppn 1 $bench"
       else
-        cmd="UCX_TLS=rc,sm,self mpirun -np 2 -ppn 1 apptainer exec --bind $WORKDIR $SIF $bench"
+        cmd="mpirun -np 2 -ppn 1 apptainer exec --bind $WORKDIR $SIF $bench"
       fi
       echo "[$(date +%T)] $mode $bench run $r: $cmd"
       echo "# $cmd" > $log
