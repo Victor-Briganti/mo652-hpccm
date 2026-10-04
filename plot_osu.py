@@ -41,7 +41,7 @@ plt.rcParams.update({"font.family": "serif", "pdf.fonttype": 42})
 os.makedirs("graphs", exist_ok=True)
 
 for bench, (title, ylabel) in BENCHMARKS.items():
-    df = pd.read_csv(f"output/osu_{bench}.csv")
+    df = pd.read_csv(f"logs/osu_{bench}.csv")
     for v in ("native", "container"):
         runs = df.filter(like=f"{v}_run")
         df[f"{v}_mean"] = runs.mean(axis=1)

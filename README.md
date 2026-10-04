@@ -2,22 +2,46 @@
 
 ## Spack
 
-Antesde iniciar o ambiente considerando que o spack já está ativado é necessário instalar o GCC:
+A instalação do ambiente Spack, pode ser feita com o seguinte comando:
 
 ```bash
-spack install --deprecated gcc@12.4
-```
-
-Para iniciar o teste do spack é necessário primeiro ativar o ambiente:
-
-```bash
-cd env
-spack env activate .
+spack env create trab01 spack/
+spack env activate trab01
 spack install
 ```
 
-Exemplo de comando para execução:
+A versão utilizada do Spack no servidor foi a 1.2.2, caso tenha algum problema relacionado a sistemas deprecados altere a última linha pelo seguinte:
 
 ```bash
-qsub -v WORKDIR=/home/lovelace/proj/proj1163/j215217/trab01,RESULTS=/home/lovelace/proj/proj1163/j215217/trab01/output osu.pbs
+spack install --deprecated
+```
+
+### Uso em sessões posteriores
+
+```bash
+source $WORKDIR/spack/share/spack/setup-env.sh
+spack env activate trab01
+```
+
+## Contêiner com HPCCM e Apptainer
+
+Para a montagem do contêiner primeiro é necessário iniciar o ambiente virtual:
+
+```bash
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+```
+
+Feito a instalação do sistema a criação e montagem do contêiner é feita da seguinte maneira:
+
+```bash
+hpccm --recipe container/recipe.py --format singularity > osu_mpich.def
+sudo apptainer build osu_mpich.sif osu_mpich.def
+```
+
+## Geração de Gráficos
+
+```bash
+python plot_osu.py
 ```
